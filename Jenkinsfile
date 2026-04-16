@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy to App Server') {
             steps {
                 // This uses the Credential ID you created in the previous step
-                sshagent(['docker_server']) {
+                sshagent(['jenkins_server']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ec2-user@172.31.11.226 << 'EOF'
                         cd /my_project/docker-fastapi-test
