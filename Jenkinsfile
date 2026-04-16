@@ -14,7 +14,7 @@ pipeline {
 ssh -o StrictHostKeyChecking=no ec2-user@172.31.11.226 << 'EOF'
 cd /my_project/docker-fastapi-test
 git pull origin main
-docker-compose up -d --build
+DOCKER_BUILDKIT=0 docker-compose up -d --build
 EOF
                     """
                 }
